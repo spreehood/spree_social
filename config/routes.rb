@@ -8,7 +8,14 @@ Spree::Core::Engine.add_routes do
 
   get 'account' => 'users#show', as: 'user_root'
 
-  namespace :admin do
-    resources :authentication_methods
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      use_doorkeeper do
+        skip_controllers 'spree/omniauth_callbacks#login'
+      end
+      devise_scope :spree_user do
+        post '/spree_oauth/social_login/:provider', to: 'omniauth_callbacks#login'
+      end
+    end
   end
 end
