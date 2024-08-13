@@ -23,6 +23,7 @@ module SpreeSocial
     end
 
     initializer 'spree_social.environment', before: 'spree.environment' do
+      require_dependency 'spree/social_configuration'
       Spree::SocialConfig = Spree::SocialConfiguration.new
     end
 
@@ -37,6 +38,7 @@ module SpreeSocial
 
   # Setup all OAuth providers
   def self.init_provider(provider)
+    require_dependency 'spree/authentication_method'
     begin
       ActiveRecord::Base.connection_pool.with_connection(&:active?)
     rescue
