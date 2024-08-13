@@ -9,7 +9,7 @@ module SpreeSocial
                                                      .with_match_path('/authentication_methods')
                                                      .build
 
-          Spree::Admin::MainMenu::SectionBuilder.new('spree_social.social', 'globe.svg')
+          Spree::Admin::MainMenu::SectionBuilder.new('social', 'globe.svg')
                                                 .with_item(item)
                                                 .build
         end

@@ -25,8 +25,8 @@ class Spree::Api::V1::OmniauthCallbacksController < Devise::OmniauthCallbacksCon
   end
 
   def access_token(user)
-    access_token = Doorkeeper::AccessToken.create!({
-      resource_owner_id: user.id,
+    access_token = Spree::OauthAccessToken.create!({
+      resource_owner: user,
       expires_in: Doorkeeper.configuration.access_token_expires_in,
       use_refresh_token: Doorkeeper.configuration.refresh_token_enabled?
     })
