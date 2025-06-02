@@ -21,9 +21,8 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version =  '>= 3.1.0', '< 5.0'
-  s.add_dependency 'spree_core', spree_version
-  s.add_runtime_dependency 'spree_auth_devise', '>= 3.1.0', '< 5.0'
+  spree_version =  '~> 5.1.0.beta'
+  s.add_dependency 'spree', spree_version
   s.add_runtime_dependency 'spree_extension'
   s.add_runtime_dependency 'omniauth'
   s.add_runtime_dependency 'oa-core'
@@ -32,7 +31,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'omniauth-github'
   s.add_runtime_dependency 'omniauth-google-oauth2'
   s.add_runtime_dependency 'omniauth-amazon'
-  s.add_runtime_dependency 'deface', '~> 1.0'
 
   s.add_development_dependency 'spree_dev_tools'
 end
